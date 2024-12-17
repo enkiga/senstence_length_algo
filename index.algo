@@ -1,0 +1,69 @@
+// Pseudcode
+
+/* 
+START
+
+    DECLARE length_counter, word_counter, vowel_counter AS INTEGER
+    DECLARE current_char, previous_char AS CHARACTER
+
+    SET length_counter, word_counter, vowel_counter TO 0
+    SET previous_char TO ' '
+
+    WHILE current_char IS NOT '.' DO
+        READ current_char
+
+        INCREMENT length_counter
+
+        IF current_char IS 'a' OR 'e' OR 'i' OR 'o' OR 'u' THEN
+            INCREMENT vowel_counter
+        END IF
+
+        IF current_char IS ' ' AND previous_char IS NOT ' ' THEN
+            INCREMENT word_counter
+        END IF
+
+        SET previous_char TO current_char
+    END WHILE
+
+    INCREMENT length_counter  // Account for the final '.'
+
+    PRINT "Length of the sentence:", length_counter
+    PRINT "Number of words in the sentence:", word_counter
+    PRINT "Number of vowels in the sentence:", vowel_counter
+
+END
+*/
+
+ALGORITHM SentenceLength
+VAR
+    lengthCounter, wordCounter, vowelCounter: INTEGER
+    current_char, previous_char: CHARACTER
+BEGIN
+    lengthCounter := 0
+    wordCounter := 0
+    vowelCounter := 0
+    previous_char := ' '
+
+    WHILE current_char <> '.' DO
+        READ current_char
+
+        lengthCounter := lengthCounter + 1
+
+        IF current_char = 'a' OR current_char = 'e' OR current_char = 'i' OR current_char = 'o' OR current_char = 'u' THEN
+            vowelCounter := vowelCounter + 1
+        END IF
+
+        IF current_char = ' ' AND previous_char <> ' ' THEN
+            wordCounter := wordCounter + 1
+        END IF
+
+        previous_char := current_char
+    END WHILE
+
+    lengthCounter := lengthCounter + 1
+
+    PRINT "Length of the sentence:", lengthCounter
+    PRINT "Number of words in the sentence:", wordCounter
+    PRINT "Number of vowels in the sentence:", vowelCounter
+    
+END
